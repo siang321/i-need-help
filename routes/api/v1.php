@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\ProductController;
+
 
 
 /*
@@ -15,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')->group(function () {
-    require __DIR__.'/api/v1.php';
-});
+
+Route::get('products/categories', [ProductController::class, 'categories']);
+Route::get('products/get_all_products', [ProductController::class, 'get_all_products']);
+Route::post('products/get_products', [ProductController::class, 'get_products']);
+Route::get('test', [ProductController::class, 'index']);
